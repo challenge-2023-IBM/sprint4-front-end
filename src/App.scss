@@ -1,0 +1,998 @@
+//colors
+:root{
+    --color-negative: #292828;
+    --color-zero: #fff;
+    --color-first: #063940;
+    --color-second: #3E838C;
+    --color-third: #8EBDB6;
+    --color-fifth: #BDD1DE;
+}
+
+//fonts
+:root{
+
+    //lg
+    --font-title-lg: 4vmin;
+    --font-title-small-lg: 3vmin;  
+    --font-text-lg: 2.5vmin;
+
+    //tablet
+    --font-title-md: 4vmin;
+    --font-title-small-md: 3.5vmin;  
+    --font-text-md: 2.5vmin;
+
+    //mobile
+    --font-title-sm: 5vmin;
+    --font-title-small-sm: 4vmin;  
+    --font-text-sm: 3.2vmin;
+}
+
+//reset css
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand';
+    scroll-behavior: smooth;
+}
+
+//header
+header.menu-header{
+    width: 100%;
+    background-color: var(--color-first);
+    padding: 15px 30px;
+
+    img{
+        width: 80px;
+        
+    }
+
+    ul{
+        gap: 25px;
+        list-style: none;
+    }
+
+    ul li a{
+        color: #ECE1C3;
+        text-decoration: none;
+        font-size: var(--font-text-lg);
+        position: relative;
+        &::before{
+            content: "";
+            width: 0;
+            height: 2px;
+            background-color:#ECE1C3;
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            transition: width .5s;
+        }
+        &:hover::before{
+            width: 100%;
+            
+        }
+        
+    }
+        @media  (max-width: 1200px) {
+            img{
+                width: 60px;
+            }
+            a{
+                font-size: var(--font-text-md);
+            }
+    }
+    @media  (max-width: 700px) {
+        a{
+            font-size: var(--font-title-small-sm);
+        }
+    }
+}
+
+//introduction
+.introduction {
+    background-color: var(--color-second);
+
+    .introduction-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr; 
+        grid-template-areas: "introduction-text introduction-img"; 
+
+        .introduction-img img{
+            width: 100%;
+            height: 100%;
+        }
+
+        .introduction-text {
+            grid-area: introduction-text; 
+            h2 {
+                font-size: var(--font-title-lg);
+                font-weight: bold;
+
+            }
+            p {
+                font-size: var(--font-text-lg);
+                font-weight: 600;
+            }
+        }
+
+        .introduction-img {
+            grid-area: introduction-img; 
+        }
+    }
+
+    //tablet
+    @media (max-width: 1200px) {
+        .introduction-container {
+            height: 100%;
+            background-image: url(./assets/bg-images/introduction-img.png);
+            background-size: 60% 100%; 
+            background-repeat: no-repeat;
+            background-position: right;
+            display: grid;
+            grid-template-rows: 100%;
+            grid-template-columns: 80%; 
+            grid-template-areas: "introduction-text"; 
+
+            .introduction-text {
+                grid-area: introduction-text;
+                text-align: center;
+                h2 {
+                    font-size: var(--font-title-md);
+                    font-weight: bold;
+                }
+    
+                p {
+                    font-size: var(--font-text-md);
+                    font-weight: 600;
+                }
+            }
+            .introduction-img{
+                img{
+                    display: none;
+                }
+            }
+        }
+    }
+
+    //mobile
+    @media (max-width: 700px) {
+        .introduction-container {
+            background-image: url(./assets/bg-images/introduction-img.png);
+            background-position: end;
+            background-size: 100% 100%; 
+            background-repeat: no-repeat;
+            display: grid;
+            grid-template-columns: 1fr; 
+            grid-template-areas: "introduction-text"; 
+
+            .introduction-text {
+                width: 100%;
+                grid-area: introduction-text;
+                text-align: center;
+                h2 {
+                    font-size: var(--font-title-sm);
+                    font-weight: bold;
+                }
+    
+                p {
+                    font-size: var(--font-text-sm);
+                    font-weight: 600;
+                }
+            }
+
+            .introduction-img{
+                img{
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+//about
+.about{
+    background-color: var(--color-third);
+    .cloud{
+        background-image: url(./assets/bg-images/cloud-about.png);
+        background-size: 100% 100%;
+        background-repeat: no-repeat; 
+        background-position: center;
+        padding: 10%;
+        display: grid;
+        grid-template-columns: 2fr 2fr;
+        grid-template-areas: "img-about" "text-about";
+        
+        .img-about{
+            width: 90%;
+            & img{
+                width: 60%;
+            }
+        }
+
+        .text-about{
+            width: 70%;
+            h2{
+                font-size: var(--font-title-lg);
+                font-weight: bold;
+            }
+            p{
+                font-size: var(--font-text-lg);
+                font-weight: 600;
+                width: 120%;
+                padding: 5px;
+                
+            }
+        }
+    }
+
+
+    //tablet
+    @media  (max-width: 1200px) {
+        .cloud {
+            padding-top: auto;
+            background-size: 100% 90%;
+            grid-template-columns: 1fr; 
+            grid-template-rows: auto;  
+            grid-template-areas:
+                "img-about"
+                "text-about";
+
+            .img-about{
+                width: 90%;
+                & img{
+                    width: 30%;
+                }
+            }
+    
+            .text-about {
+                width: 90%;
+                h2{
+                    font-size: var(--font-title-md);
+                    font-weight: bold;
+                }
+                p{
+                    font-size: var(--font-text-md);
+                    font-weight: 600;
+                    padding: 5px;
+                }
+            } 
+        }
+    }
+
+
+    //mobile
+    @media  (max-width: 700px) {
+        .cloud {
+            background-size: 100% 90%;
+            grid-template-columns: 1fr; 
+            grid-template-rows: auto;  
+            grid-template-areas:
+                "img-about"
+                "text-about";
+
+            .img-about{
+                width: 80%;
+                & img{
+                    width: 35%;
+                    height: 90%;
+                }
+            }
+    
+            .text-about {
+                width: 90%;
+                h2{
+                    font-size: var(--font-title-sm);
+                    font-weight: bold;
+                }
+                p{
+                    font-size: var(--font-text-sm);
+                    font-weight: 600;
+                    padding: 5px;
+                }
+            } 
+        }
+    }
+    
+}
+
+//problem
+.problem{
+    background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.8)) ,url(./assets/bg-images/problema-img.png);
+    background-attachment: fixed;
+    background-size: cover;
+
+    .problem-text{
+        padding: 12%;
+        h2{
+            color: var(--color-zero);
+            font-size: var(--font-title-lg);
+            font-weight: bold;
+        }
+        p{
+            font-size: var(--font-text-lg);
+            font-weight: 600;
+            color: var(--color-zero); 
+        }
+    }
+    //tablet
+    @media  (max-width: 1200px) {
+        .problem-text{
+            h2{
+                color: var(--color-zero); 
+                font-size: var(--font-title-md);
+                font-weight: bold;
+            }
+            p{  
+                color: var(--color-zero); 
+                font-size: var(--font-text-md);
+                font-weight: 600;
+            }
+        }
+    }
+
+    //mobile
+    @media  (max-width: 700px) {
+        .problem-text{
+            h2{
+                padding: 10px;
+                color: var(--color-zero); 
+                font-size: var(--font-title-sm);
+                font-weight: bold;
+            }
+            p{  
+                color: var(--color-zero); 
+                font-size: var(--font-text-sm);
+                font-weight: 600;
+            }
+        }
+    }
+}
+
+//impacts
+.impacts{
+    background-color: var(--color-second);
+    display: grid;
+    grid-template-rows: 0.5fr 2fr 0.2fr 2fr;
+    grid-template-areas:  
+                "impact-first-title"
+                "impact-first"
+                "impact-second-title"
+                "impact-second";
+
+
+    .impact-first-title{
+        font-size: var(--font-title-lg);
+        font-weight: bold;
+        grid-area: impact-first-title;
+        padding: 10px;
+    }
+
+    .impact-first {
+        gap: 30px;
+
+        .icon-impact-first {
+            width: 120px;
+            height: 120px;
+            background-color: var(--color-zero);
+            border-radius: 50%;
+
+            img{
+                width: 70%;
+                height: 70%;
+            }
+        }
+
+        .text-impact-first {
+            width: 60%; 
+            font-size: var(--font-text-lg);
+        }
+    }
+
+    .impact-second-title{
+        font-size: var(--font-title-lg);
+        font-weight: bold;
+        grid-area: impact-second-title;
+        padding: 10px;
+    }
+
+    .impact-second {
+        gap: 30px;
+
+        .text-impact-second {
+            text-align: end;
+            width: 50%; 
+            font-size: var(--font-text-lg);
+        }
+
+        .icon-impact-second {
+            width: 120px;
+            height: 120px;
+            background-color: var(--color-zero);
+            border-radius: 50%;
+
+            img{
+                width: 70%;
+                height: 70%;
+            }
+        }
+        
+    }
+
+    //mobile
+    @media (max-width: 700px) {  
+        .impact-first-title{
+            font-size: var(--font-title-sm);
+            font-weight: bold;
+            padding: 10px;
+        }
+    
+        .impact-first {
+            gap: 30px;
+            flex-direction: column;
+    
+            .icon-impact-first {
+                width: 100px;
+                height: 100px;
+                background-color: var(--color-zero);
+                border-radius: 50%;
+    
+                img{
+                    width: 70%;
+                    height: 70%;
+                }
+            }
+    
+            .text-impact-first {
+                width: 80%; 
+                font-size: var(--font-text-sm);
+            }
+        }
+    
+        .impact-second-title{
+            font-size: var(--font-title-sm);
+            font-weight: bold;
+            padding-top: 2%;
+        }
+    
+        .impact-second {
+            flex-direction: column;
+    
+            .text-impact-second {
+                text-align: start;
+                width: 80%; 
+                font-size: var(--font-text-sm);
+            }
+    
+            .icon-impact-second {
+                width: 100px;
+                height: 100px;
+                background-color: var(--color-zero);
+                border-radius: 50%;
+    
+                img{
+                    width: 70%;
+                    height: 70%;
+                }
+            }
+        }                
+    }
+}
+
+//solution
+.solution{
+    background-color: var(--color-third);
+    text-align: center;
+    h2{
+        font-size: var(--font-title-lg);
+        font-weight: bold;
+    }
+
+    .itens-solution-container{
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-areas: "item-solution-arduino item-solution-text-send item-solution-database item-solution-send-database item-solution-android";
+        padding-inline: 13%;
+
+        p{
+            font-weight: 700;
+        }
+
+        .icon{
+            width: 150px;
+            height: 150px;
+            background-color: var(--color-zero);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+
+            img{
+                width: 70%;
+            }
+        }
+
+        .item-solution-arduino{
+            grid-area: item-solution-arduino;
+        }
+        .item-solution-text-send{
+            grid-area: item-solution-text-send;
+
+            .arrow{
+                width: 90%;
+                height: 5px;
+                background-color: var(--color-negative);
+                justify-content: flex-end;
+                align-items: center;
+
+                .pointer{
+                    border: solid;
+                    border-width: 0 5px 5px 0;
+                    display: inline-block;
+                    padding: 10px;
+                }
+
+                .arrow-right{
+                    transform: rotate(-45deg);
+                }
+            }
+        }
+        .item-solution-database{
+            grid-area: item-solution-database;
+        }   
+        .item-solution-send-database{
+            grid-area: item-solution-send-database;
+
+            .arrow{
+                width: 90%;
+                height: 5px;
+                background-color: var(--color-negative);
+                justify-content: flex-end;
+                align-items: center;
+                justify-content: space-between;
+
+                .pointer{ 
+                    border: solid;
+                    border-width: 0 5px 5px 0;
+                    display: inline-block;
+                    padding: 10px;
+                    }
+                    .arrow-right{
+                        transform: rotate(-45deg);
+                        }
+                    .arrow-left{
+                        transform: rotate(135deg);
+                        }
+                }
+
+        }
+        .item-solution-android{
+            grid-area: item-solution-android;
+        }
+    }
+
+    //tablet
+    @media (max-width: 1200px) {
+        .itens-solution-container {
+            display: grid;
+            grid-template-columns: repeat(5, 0.8fr);
+            grid-template-areas: "item-solution-arduino item-solution-text-send item-solution-database item-solution-send-database item-solution-android";
+            padding-inline: 2%;
+
+            p{
+                font-weight: 700;
+            }
+    
+            .icon{
+                width: 120px;
+                height: 120px;
+                background-color: var(--color-zero);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+    
+                img{
+                    width: 70%;
+                }
+            }
+            .item-solution-text-send{
+    
+                .arrow{
+                    width: 70%;
+                    height: 4px;
+                    background-color: var(--color-negative);
+                    justify-content: flex-end;
+                    align-items: center;
+    
+                    .pointer{
+                        border: solid;
+                        border-width: 0 3px 3px 0;
+                        display: inline-block;
+                        padding: 10px;
+                    }
+    
+                    .arrow-right{
+                        transform: rotate(-45deg);
+                    }
+                }
+            }
+            .item-solution-send-database{
+    
+                .arrow{
+                    width: 80%;
+                    height: 4px;
+                    background-color: var(--color-negative);
+                    justify-content: flex-end;
+                    align-items: center;
+                    justify-content: space-between;
+    
+                    .pointer{ 
+                        border: solid;
+                        border-width: 0 3px 3px 0;
+                        display: inline-block;
+                        padding: 10px;
+                        }
+                        .arrow-right{
+                            transform: rotate(-45deg);
+                            }
+                        .arrow-left{
+                            transform: rotate(135deg);
+                            }
+                    }
+            }
+        }
+    }
+
+    //mobile
+    @media (max-width: 700px) {
+        h2{
+            font-size: var(--font-title-sm);
+            font-weight: bold;
+        }
+        .itens-solution-container {
+            padding: 5%;
+            grid-template-columns: 1fr;
+            grid-template-areas: 
+            "item-solution-arduino"
+            "item-solution-text-send"
+            "item-solution-database"
+            "item-solution-send-database"
+            "item-solution-android";
+
+            p{
+                font-size: var(--font-text-sm);
+                font-weight: 700;
+            }
+            .icon{
+                width: 100px;
+                height: 100px;
+                background-color: var(--color-zero);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+
+                img{
+                    width: 70%;
+                }
+
+            }
+            .item-solution-text-send{
+                .arrow{
+                    width: 0%;
+                    .pointer{
+                        border-width: 0 0px 0px 0;
+                    }
+                }
+            }
+            .item-solution-send-database{
+                .arrow{
+                    width: 0%;
+                    .pointer{ 
+                        border-width: 0 0px 0px 0;
+                        }
+                    }
+            }
+        }
+    }
+    
+}
+
+//arduino
+.arduino{
+    background-color: var(--color-second);
+    .title-arduino{
+        h2{
+            font-size: var(--font-title-small-lg);
+            font-weight: bold;
+            text-decoration: underline;
+            text-decoration-thickness: 3px;
+            padding-bottom: 5px;
+            background-color: var(--color-third);;
+            width: 10%;
+            border-bottom-right-radius: 23px;
+            border-bottom-left-radius: 23px;
+        }
+    }
+    .arduino-container{
+        display: grid;
+        grid-template-rows: repeat(5 ,0.9fr);
+        grid-template-areas:
+                "arduino-uno"
+                "sensor-mq"
+                "sensor-neo"
+                "sensor-esp"
+                "sensor-dht";
+
+    img{
+    width: 180px;
+    }
+
+    p{
+        font-size: var(--font-text-lg);
+        width: 40%;
+        font-weight: bold;
+    }
+    
+    .arduino-uno{
+        padding: 10px;
+        grid-area: arduino-uno;
+        background-color: var(--color-second);
+        }
+    .sensor-mq{
+        padding: 10px;
+        grid-area: sensor-mq;
+        background-color: var(--color-fifth);
+        }
+    .sensor-neo{
+        padding: 10px;
+        grid-area: sensor-neo;
+        background-color: var(--color-second);
+        }
+    .sensor-esp{
+        padding: 10px;
+        grid-area: sensor-esp;
+        background-color: var(--color-fifth);
+        }
+    .sensor-dht{
+        padding: 10px;
+        grid-area: sensor-dht;
+        background-color: var(--color-second);
+        }
+    } 
+    //tablet
+    @media (max-width: 1200px) {
+        .title-arduino{
+            h2{
+                font-size: var(--font-title-small-md);
+                font-weight: bold;
+                text-decoration: underline;
+                text-decoration-thickness: 3px;
+                padding-bottom: 5px;
+                background-color: var(--color-third);;
+                width: 20%;
+                border-bottom-right-radius: 23px;
+                border-bottom-left-radius: 23px;
+            }
+        }
+        .arduino-container {
+            img{
+                width: 150px;
+                }
+            
+                p{
+                    font-size: var(--font-text-md);
+                    width: 50%;
+                } 
+        }
+    }
+    //mobile
+    @media (max-width: 700px) {
+        .title-arduino{
+            h2{
+                font-size: var(--font-title-small-sm);
+                font-weight: bold;
+                text-decoration: underline;
+                text-decoration-thickness: 3px;
+                padding-bottom: 5px;
+                background-color: var(--color-third);;
+                width: 25%;
+                border-bottom-right-radius: 23px;
+                border-bottom-left-radius: 23px;
+            }
+        }
+        .arduino-container {
+            img{
+                width: 120px;
+                }
+            
+                p{
+                    font-size: var(--font-text-sm);
+                    width: 50%;
+                } 
+        }
+    }
+}
+
+//app
+.app{
+    background-color: var(--color-third);
+    padding: 4%;
+    display: grid;
+    grid-template-columns: repeat(2 ,1fr);
+    grid-template-areas: "app-text-container app-img-container";
+
+    .app-text-container{
+        grid-area: app-text-container;
+        .app-text{
+            width: 60%;
+            h2{
+                font-size: var(--font-title-lg);
+                font-weight: bold;
+            }
+            p{
+                font-size: var(--font-text-lg);
+            }
+        }
+    }
+    .app-img-container{
+        grid-area: app-img-container;
+        display: flex;
+        align-items: start;
+        flex-direction: row;
+
+        .cell{
+            width: 90%;
+            img{
+                width: 100%;
+            }
+        }
+        .mobile-arrow{
+            padding-top: 20px;
+            width: 30%;
+            img{
+                width: 80%;
+            }
+        }
+    }
+
+    @media (max-width: 1200px) {
+        padding: 5%;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "app-text-container"
+            "app-img-container";
+        
+        .app-text-container {
+            .app-text {
+            width: 100%;
+            h2{
+                font-size: var(--font-title-md);
+                font-weight: bold;
+                }
+            p{
+                font-size: var(--font-text-md);
+            }
+        }
+    }
+    
+        .app-img-container {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+    
+            .cell {
+                width: 50%;
+            }
+    
+            .mobile-arrow {
+                img{
+                    display: none;
+                }
+            }
+            }
+        }
+
+    @media (max-width: 700px) {
+        padding: 5%;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "app-text-container"
+            "app-img-container";
+        
+        .app-text-container {
+            .app-text {
+            width: 100%;
+            h2{
+                font-size: var(--font-title-sm);
+                font-weight: bold;
+                }
+            p{
+                font-size: var(--font-text-sm);
+            }
+        }
+    }
+    
+        .app-img-container {
+            flex-direction: column;
+            display: flex;
+            align-items: start;
+    
+            .cell {
+                width: 80%;
+            }
+    
+            .mobile-arrow {
+                img{
+                    display: none;
+                }
+            }
+            }
+        }
+}
+
+//footer
+.footer {
+    background-color: var(--color-third);
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    justify-content: start; 
+    align-items: end; 
+    position: relative;
+    
+    img {
+        max-width: 100%; 
+        height: auto; 
+        position: absolute;
+    }
+    
+    p {
+        color: var(--color-zero);
+        font-size: var(--font-text-lg);
+        position: relative;
+        margin-left: 20px;
+    }
+    //tablet
+    @media (max-width: 1200px) {
+        height: 5vh;
+        background-color: var(--color-second);
+        img {
+            top: -150px;
+            width: 100vw; 
+            height: auto; 
+        }
+        p{
+            font-size: var(--font-text-sm);
+        }
+    }
+    //mobile
+    @media (max-width: 700px) {
+        height: 5vh;
+        background-color: var(--color-second);
+        img {
+            top: -90px;
+            width: 100vw; 
+            height: auto; 
+        }
+        p{
+            font-size: var(--font-text-sm);
+        }
+    }
+        //mobile
+        @media (max-width: 400px) {
+            height: 5vh;
+            background-color: var(--color-second);
+            img {
+                top: -70px;
+                width: 100vw; 
+                height: auto; 
+            }
+            p{
+                font-size: var(--font-text-sm);
+            }
+        }
+}
+
+
+
